@@ -18,7 +18,10 @@ Spring Boot favors Java-based configuration. Although it is possible to use`Spri
 
 
 
+## 20.2 Automatic restart
 
+The restart technology provided by Spring Boot works by using two classloaders. Classes that don’t change (for example, those from third-party jars) are loaded into a *base* classloader. Classes that you’re actively developing are loaded into a *restart* classloader. When the application is restarted, the *restart* classloader is thrown away and a new one is created. This approach means that application restarts are typically much
+faster than “cold starts” since the *base* classloader is already available and populated.
 
 
 
@@ -32,6 +35,12 @@ http://projects.spring.io/spring-boot/
 https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle
 
 https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-configuration-classes
+
+https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-restart
+
+
+
+
 
 
 
