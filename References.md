@@ -10,6 +10,18 @@
 
 
 
+## 15. Configuration classes
+
+Spring Boot favors Java-based configuration. Although it is possible to use`SpringApplication` with an XML sources, we generally recommend that your primary source is a single `@Configuration` class. Usually the class that defines the `main` method is also a good candidate as the primary `@Configuration`.
+
+> Many Spring configuration examples have been published on the Internet that use XML configuration. Always try to use the equivalent Java-based configuration if possible. Searching for `Enable*` annotations can be a good starting point.
+
+
+
+
+
+
+
 
 
 
@@ -19,7 +31,7 @@ http://projects.spring.io/spring-boot/
 
 https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle
 
-
+https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-configuration-classes
 
 
 
