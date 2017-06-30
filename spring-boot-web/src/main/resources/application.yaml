@@ -1,0 +1,19 @@
+name: externalized properties
+
+random.value: ${random.value}
+random.int: ${random.int}
+random.long: ${random.long}
+random.uuid: ${random.uuid}
+random1.less.than.ten: ${random.int(10)}
+random1.in.range: ${random.int[101,103]}
+
+
+parent:
+  child:
+     field: yaml value
+  child2:
+      field: yaml value2
+
+
+config:
+  value: config-value
