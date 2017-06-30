@@ -3,17 +3,19 @@ package io.github.ws89.demo.springboot;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * Created by WS on 2017/6/22.
  */
 
-// @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
-@EnableAutoConfiguration
-@ComponentScan
-@Configuration
+@SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
+//@EnableAutoConfiguration
+//@ComponentScan
+//@Configuration
 public class Application {
 
 
@@ -32,7 +34,6 @@ public class Application {
         SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.setBannerMode(Banner.Mode.OFF);
         springApplication.run( args );
-
     }
 
 }

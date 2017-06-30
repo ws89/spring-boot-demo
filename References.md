@@ -1,3 +1,5 @@
+
+
 ## Features
 
 - Create stand-alone Spring applications
@@ -24,6 +26,81 @@ The restart technology provided by Spring Boot works by using two classloaders. 
 faster than “cold starts” since the *base* classloader is already available and populated.
 
 
+
+
+
+## 24.1 Configuring random values
+
+Practice:
+
+> io.github.ws89.demo.springboot.controller.ExampleController
+
+```java
+@RequestMapping("/random_value")
+String randomValue(@Value("${random.value}") String value
+                    ,@Value("${random.int}") int randomInt
+                    ,@Value("${random.long}") long randomLong
+                    ,@Value("${random.uuid}") String uuid
+                    ,@Value("${random1.less.than.ten}") int lessThanTen
+                    ,@Value("${random1.in.range}") int intInRange
+                    ){
+
+    Object[] objects = {value
+                        ,randomInt
+                        ,randomLong
+                        ,uuid
+                        ,lessThanTen
+                        ,intInRange
+                        };
+
+    return Arrays.toString(objects);
+}
+```
+
+> D:\work\git\ws89\demo\spring-boot-demo\spring-boot-web\src\main\resources\application.properties
+
+```properties
+random.value=${random.value}
+random.int=${random.int}
+random.long=${random.long}
+random.uuid=${random.uuid}
+random1.less.than.ten=${random.int(10)}
+random1.in.range=${random.int[101,103]}
+```
+
+
+
+**Exception:**
+
+```exception
+2017-06-30 14:34:01.900  WARN 13740 --- [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "cbd2ac5a265e26171f87e76449f4ffac"
+```
+
+
+
+**note that**:
+
+```
+ Properties are considered in the following order:
+ 
+ 11.A RandomValuePropertySource that only has properties in random.*.
+ >
+ 15. Application properties packaged inside your jar (application.properties and YAML variants).
+ 
+PropertySource that returns a random value for any property that starts with "random.". Return a byte[] unless the property name ends with ".int or ".long".
+```
+
+> If want to use application.properties configuration, `@Value("${random1.less.than.ten}")` instead of `@Value("${random.less.than.ten}")`
+
+
+
+> References:
+>
+> https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config 
+>
+> https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config
+>
+> http://docs.spring.io/spring-boot/docs/1.2.2.RELEASE/api/org/springframework/boot/context/config/RandomValuePropertySource.html
 
 
 
