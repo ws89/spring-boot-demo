@@ -34,7 +34,7 @@ public class ExampleController {
                         ,@Value("${random.int}") int randomInt
                         ,@Value("${random.long}") long randomLong
                         ,@Value("${random.uuid}") String uuid
-                        ,@Value("${random.less.than.ten}") int lessThanTen
+                        ,@Value("${random1.less.than.ten}") int lessThanTen
                         ,@Value("${random1.in.range}") int intInRange
                         ){
 
